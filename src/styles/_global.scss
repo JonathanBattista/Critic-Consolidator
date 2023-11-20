@@ -1,0 +1,11 @@
+@use "./fonts" as *;
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+  font-family: "Avenir", Arial, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
