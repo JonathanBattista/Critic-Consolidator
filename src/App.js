@@ -12,8 +12,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/Games" element={<Homepage />} />
-        <Route path="/Movies" element={<Moviepage />} />
+        <Route path="/games" element={<Homepage />} />
+        <Route path="/movies" element={<Moviepage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -11,13 +10,13 @@ const Header = () => {
         </Link>
       </div>
       <div className="header-links">
-        <Link to="/Movies" className="header-link">
+        <Link to="/movies" className="header-link">
           Movie Page
         </Link>
-        <Link to="/Games" className="header-link">
+        <Link to="/games" className="header-link">
           Games Page
         </Link>
-        <Link to="/Local" className="header-link">
+        <Link to="/local" className="header-link">
           Local Page
         </Link>
       </div>
