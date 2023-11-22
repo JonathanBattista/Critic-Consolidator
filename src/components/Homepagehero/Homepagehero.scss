@@ -1,0 +1,59 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/_variables.scss" as *;
+@use "../../styles/_mixins.scss" as *;
+
+.homepage__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+  }
+  @include desktop {
+  }
+}
+.homepage__hero-card {
+  box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 14rem;
+  height: 22.5rem;
+  margin: 2rem 1.75rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #000;
+  position: relative;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  &--movies {
+    background-image: url();
+  }
+
+  &--games {
+    background-image: url();
+  }
+
+  &--books {
+    background-image: url();
+  }
+  &:hover {
+    &--movies {
+      background-image: url();
+    }
+
+    &--games {
+      background-image: url();
+    }
+
+    &--books {
+      background-image: url();
+    }
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}

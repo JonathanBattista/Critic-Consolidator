@@ -11,13 +11,16 @@ const Header = () => {
       </div>
       <div className="header-links">
         <Link to="/movies" className="header-link">
-          Movie Page
+          Movies
         </Link>
         <Link to="/games" className="header-link">
-          Games Page
+          Games
+        </Link>
+        <Link to="/books" className="header-link">
+          Books
         </Link>
         <Link to="/local" className="header-link">
-          Local Page
+          Local
         </Link>
       </div>
     </div>

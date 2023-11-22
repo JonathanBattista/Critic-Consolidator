@@ -1,4 +1,4 @@
-import React from "react";
+import "./Footer.scss";
 
 const Footer = () => {
   return (
@@ -12,22 +12,22 @@ const Footer = () => {
             alt="An awesome picture of me"
           />
           <p className="footer__bio">Bio</p>
-        </div>
-        <div>
-          <a
-            className="footer__links"
-            href="https://www.linkedin.com/in/jonathan-battista/"
-            target="_blank"
-            rel="noopener noreferrer">
-            LinkedIn
-          </a>
-          <a
-            className="footer__links"
-            href="https://github.com/JonathanBattista"
-            target="_blank"
-            rel="noopener noreferrer">
-            GitHub
-          </a>
+          <div>
+            <a
+              className="footer__links"
+              href="https://www.linkedin.com/in/jonathan-battista/"
+              target="_blank"
+              rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <a
+              className="footer__links"
+              href="https://github.com/JonathanBattista"
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub
+            </a>
+          </div>
         </div>
         <div className="footer__resources">
           <h3 className="footer__headers">RESOURCES</h3>
