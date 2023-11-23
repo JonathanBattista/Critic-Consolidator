@@ -1,0 +1,43 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/_variables.scss" as *;
+@use "../../styles/_mixins.scss" as *;
+
+.header {
+  display: flex;
+  background-color: $primarycolor4;
+  &__logo {
+    display: flex;
+  }
+  &__logo-container {
+    display: flex;
+  }
+  &__logo-image {
+    height: 1rem;
+    width: 1rem;
+  }
+  &__title {
+    font-size: 1rem;
+  }
+  &__nav {
+  }
+  &__nav-link {
+    display: none;
+    @include tablet {
+      display: flex;
+    }
+  }
+  &__mobile-menu {
+    display: flex;
+    cursor: pointer;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: none;
+    }
+  }
+}

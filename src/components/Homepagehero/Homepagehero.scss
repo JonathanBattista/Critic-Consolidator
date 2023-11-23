@@ -6,21 +6,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem;
+  gap: 1.75rem;
   @include tablet {
     flex-direction: row;
     justify-content: center;
   }
-  @include desktop {
+  &-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.9rem;
+    @include tablet {
+      font-size: 3rem;
+    }
   }
 }
-.homepage__hero-card {
+.homepage__hero__card {
   box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   overflow: hidden;
   width: 14rem;
   height: 22.5rem;
-  margin: 2rem 1.75rem;
   text-decoration: none;
   font-size: 1.5rem;
   color: #000;
@@ -28,29 +37,47 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
+  @include tablet {
+    width: 15rem;
+  }
+  @include desktop {
+    width: 20rem;
+  }
   &--movies {
-    background-image: url();
+    background-image: url(../../assets/images/frame_00_delay-0.07s.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &:hover {
+      background-image: url(../../assets/images/moviecamera.gif);
+    }
   }
-
   &--games {
-    background-image: url();
+    //background-image: url(../../assets/images/games2.jpg);
+    background-image: url(../../assets/images/gamespicture.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &:hover {
+      //background-image: url(../../assets/images/backupgif.gif);
+      background-image: url(../../assets/images/differntanglegame.gif);
+    }
   }
-
   &--books {
-    background-image: url();
+    background-image: url(../../assets/images/books.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &:hover {
+      background-image: url(../../assets/images/giphybooks.gif);
+    }
   }
-  &:hover {
-    &--movies {
-      background-image: url();
-    }
-
-    &--games {
-      background-image: url();
-    }
-
-    &--books {
-      background-image: url();
-    }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-header {
   }
 
   h2 {
