@@ -31,7 +31,8 @@
 .homepage__hero__card {
   box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  transition: border-color 0.5s ease-in-out;
   overflow: hidden;
   width: 14rem;
   height: 22.5rem;
@@ -42,6 +43,10 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
+  &:hover {
+    animation: pulsate 1.5s infinite;
+    border: 3px solid $secondarycolor1;
+  }
   @include tablet {
     width: 15rem;
   }
@@ -88,5 +93,16 @@
 
   h2 {
     font-size: 2em;
+  }
+  @keyframes pulsate {
+    0% {
+      border-color: $secondarycolor1;
+    }
+    50% {
+      border-color: $primarycolor4;
+    }
+    100% {
+      border-color: $secondarycolor1;
+    }
   }
 }
