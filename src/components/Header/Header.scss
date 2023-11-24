@@ -5,18 +5,29 @@
 .header {
   display: flex;
   background-color: $primarycolor4;
+  padding: 2rem 1rem;
+  align-items: flex-end;
+  gap: 1rem;
+  justify-content: space-between;
   &__logo {
     display: flex;
+    padding-bottom: 0.5rem;
+    align-items: flex-end;
+    gap: 1rem;
+    &:hover {
+      border-bottom: 1px solid $secondarycolor1;
+    }
   }
   &__logo-container {
     display: flex;
   }
   &__logo-image {
-    height: 1rem;
-    width: 1rem;
+    height: 2rem;
+    width: 2rem;
   }
   &__title {
     font-size: 1rem;
+    color: $primarycolor1;
   }
   &__nav {
   }
@@ -26,16 +37,49 @@
       display: flex;
     }
   }
+  &__nav-dropdown {
+    color: $primarycolor1;
+    text-decoration: none;
+    padding: 0.5rem 0rem 0rem 0rem;
+    &:hover {
+      border-bottom: 1px solid $secondarycolor1;
+    }
+  }
   &__mobile-menu {
     display: flex;
     cursor: pointer;
+    color: $primarycolor1;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    gap: 0.2rem;
+    &:not(.active) {
+      &:hover {
+        border-bottom: 1px solid $secondarycolor1;
+      }
+    }
+    &.active {
+      &:hover {
+        border-bottom: none;
+      }
+    }
     @include tablet {
       display: none;
     }
   }
+  &__mobile-image {
+    height: 1rem;
+  }
   &__mobile-dropdown {
+    position: absolute;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    border: 1px solid $secondarycolor1;
+    background-color: $primarycolor4;
+    box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10%;
     @include tablet {
       display: none;
     }

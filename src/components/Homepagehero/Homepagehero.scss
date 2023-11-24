@@ -17,10 +17,15 @@
     display: flex;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+    color: $primarycolor1;
+    border-top: 3px solid $secondarycolor1;
     @include tablet {
       font-size: 3rem;
     }
+  }
+  &-container {
+    background-color: $primarycolor3;
   }
 }
 .homepage__hero__card {
@@ -78,6 +83,7 @@
     align-items: center;
   }
   &-header {
+    color: $primarycolor1;
   }
 
   h2 {

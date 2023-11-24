@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import logo from "../../assets/Logo/consolidation-icon-for-graphic-design-logo-free-vector.png";
+import logo from "../../assets/Logo/logo-white.png";
+import downarrow from "../../assets/images/dropdown.png";
+import uparrow from "../../assets/images/uparrow.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,25 +38,33 @@ const Header = () => {
           Local
         </Link>
       </div>
-      <div className="header__mobile-menu" onClick={toggleMobileMenu}>
-        Categories
-      </div>
-      {isMobileMenuOpen && (
-        <div className="header__mobile-dropdown">
-          <Link to="/movies" className="header__nav-dropdown">
-            Movies
-          </Link>
-          <Link to="/games" className="header__nav-dropdown">
-            Games
-          </Link>
-          <Link to="/books" className="header__nav-dropdown">
-            Books
-          </Link>
-          <Link to="/local" className="header__nav-dropdown">
-            Local
-          </Link>
+      <div>
+        <div
+          className={`header__mobile-menu ${isMobileMenuOpen ? "active" : ""}`}
+          onClick={toggleMobileMenu}>
+          Review Categories
+          <img
+            className="header__mobile-image"
+            src={isMobileMenuOpen ? uparrow : downarrow}
+            alt="dropdown"></img>
         </div>
-      )}
+        {isMobileMenuOpen && (
+          <div className="header__mobile-dropdown">
+            <Link to="/movies" className="header__nav-dropdown">
+              Movies
+            </Link>
+            <Link to="/games" className="header__nav-dropdown">
+              Games
+            </Link>
+            <Link to="/books" className="header__nav-dropdown">
+              Books
+            </Link>
+            <Link to="/local" className="header__nav-dropdown">
+              Local
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
