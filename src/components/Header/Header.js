@@ -24,6 +24,13 @@ const Header = () => {
           <h2 className="header__title">Critic Consolidator</h2>
         </Link>
       </div>
+      <Link to="/" className="header__logo-desktop">
+        <img
+          className="header__logo-image-desktop"
+          src={logo}
+          alt="Critic Consolidator Logo"
+        />
+      </Link>
       <div className="header__nav">
         <Link to="/movies" className="header__nav-link">
           Movies

@@ -21,6 +21,16 @@
       border-bottom: 1px solid $secondarycolor1;
     }
   }
+  &__logo-desktop {
+    display: none;
+    @include desktop {
+      display: flex;
+      padding-bottom: 0.5rem;
+      align-items: flex-end;
+      gap: 1rem;
+      border-bottom: 1px solid $primarycolor4;
+    }
+  }
   &__logo-container {
     display: flex;
   }
@@ -30,6 +40,20 @@
     @include tablet {
       height: 3rem;
       width: 3rem;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
+  &__logo-image-desktop {
+    display: none;
+    @include desktop {
+      display: flex;
+      height: 7rem;
+      width: 7rem;
+      position: absolute;
+      left: 50vw;
+      top: 0vw;
     }
   }
   &__title {
