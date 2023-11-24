@@ -9,6 +9,7 @@
   align-items: flex-end;
   gap: 1rem;
   justify-content: space-between;
+  border-bottom: 3px solid $secondarycolor1;
   @include tablet {
   }
   &__logo {

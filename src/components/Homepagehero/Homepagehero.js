@@ -1,6 +1,6 @@
 import "./Homepagehero.scss";
 import { Link } from "react-router-dom";
-import map from "../../assets/images/Google-Map-SEO.jpg";
+import map from "../../assets/images/map.png";
 
 const HomePageHero = () => {
   return (
@@ -28,8 +28,23 @@ const HomePageHero = () => {
       </div>
       <div class="homepage__local">
         <h2 class="homepage__local-header">Local Search</h2>
-        <img class="homepage__local-image" src={map} alt="Map Image"></img>
-        <p class="homepage__local-text">Feature coming soon!</p>
+        <div class="homepage__local__image-container">
+          <input
+            className="homepage__local__search"
+            type="text"
+            placeholder="Search"
+          />
+          <img class="homepage__local__image" src={map} alt="Map"></img>
+        </div>
+        <div class="homepage__local__text-container">
+          <h2 class="homepage__local__text-header">Feature coming soon!</h2>
+          <p class="homepage__local__text">
+            My goal is to update this site regualry in the future and one of the
+            biggest improvements would be to have a working geo-location search
+            field. This would allow for quick and easy review searches on local
+            busniesses and places.
+          </p>
+        </div>
       </div>
     </section>
   );
