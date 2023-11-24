@@ -18,13 +18,33 @@
     padding: 1rem;
     border-top: 1px solid $secondarycolor1;
   }
-  &__links {
+  &__links-personal {
     color: $primarycolor1;
   }
-  &__link-images {
-    height: 2rem;
+  &__links-resources {
+    color: $primarycolor1;
   }
-  &__link-list {
+  &__link-images-personal {
+    height: 2rem;
+    @include tablet {
+      height: 4rem;
+    }
+  }
+  &__link-images-resources {
+    height: 2rem;
+    padding: 1rem 0rem 0rem 3rem;
+    @include tablet {
+      height: 4rem;
+      padding: 0rem 0rem 0rem 7rem;
+    }
+  }
+  &__link-list-personal {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  &__link-list-resources {
     display: flex;
     gap: 1rem;
     justify-content: space-around;
@@ -38,8 +58,16 @@
   &__bio-container {
     display: block;
     padding: 1rem;
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
   }
   &__bio {
+    @include tablet {
+      font-size: 1.5rem;
+    }
   }
   &__copyright-container {
     background-color: $primarycolor1;
@@ -49,10 +77,22 @@
     gap: 1rem;
     border-top: 3px solid $secondarycolor1;
     color: $primarycolor2;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   &__copyright-image {
     width: 1rem;
     height: 1rem;
+  }
+  &__logo {
+    width: 3rem;
+    height: 3rem;
+  }
+  &__logo-container {
+    display: flex;
+    justify-content: center;
   }
   &__copyright-message {
     display: flex;

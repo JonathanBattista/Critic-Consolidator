@@ -1,4 +1,5 @@
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 import myPicture from "../../assets/images/self-picture.jpg";
 import linkedIn from "../../assets/Logo/LI-Logo.png";
 import gitHub from "../../assets/Logo/github-mark-white.svg";
@@ -6,6 +7,7 @@ import google from "../../assets/Logo/google-logo.png";
 import facebook from "../../assets/Logo/facebook.png";
 import yelp from "../../assets/Logo/yelp_logo_dark_bg.png";
 import copyRight from "../../assets/Icons/copyright.png";
+import logo from "../../assets/Logo/logo-black.png";
 
 const Footer = () => {
   return (
@@ -24,27 +26,27 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <ul className="footer__link-list">
+            <ul className="footer__link-list-personal">
               <li>
                 <a
-                  className="footer__links"
+                  className="footer__links-personal"
                   href="https://www.linkedin.com/in/jonathan-battista/"
                   target="_blank"
                   rel="noopener noreferrer">
                   <img
-                    className="footer__link-images"
+                    className="footer__link-images-personal"
                     src={linkedIn}
                     alt="LinkedIn"></img>
                 </a>
               </li>
               <li>
                 <a
-                  className="footer__links"
+                  className="footer__links-personal"
                   href="https://github.com/JonathanBattista"
                   target="_blank"
                   rel="noopener noreferrer">
                   <img
-                    className="footer__link-images"
+                    className="footer__link-images-personal"
                     src={gitHub}
                     alt="GitHub"></img>
                 </a>
@@ -54,39 +56,39 @@ const Footer = () => {
         </div>
         <div className="footer__resources">
           <h3 className="footer__header-resources">RESOURCES</h3>
-          <ul className="footer__link-list">
+          <ul className="footer__link-list-resources">
             <li>
               <a
-                className="footer__links"
+                className="footer__links-resources"
                 href="https://www.google.com/"
                 target="_blank"
                 rel="noopener noreferrer">
                 <img
-                  className="footer__link-images"
+                  className="footer__link-images-resources"
                   src={google}
                   alt="Google"></img>
               </a>
             </li>
             <li>
               <a
-                className="footer__links"
+                className="footer__links-resources"
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer">
                 <img
-                  className="footer__link-images"
+                  className="footer__link-images-resources"
                   src={facebook}
                   alt="Facebook"></img>
               </a>
             </li>
             <li>
               <a
-                className="footer__links"
+                className="footer__links-resources"
                 href="https://www.yelp.com/"
                 target="_blank"
                 rel="noopener noreferrer">
                 <img
-                  className="footer__link-images"
+                  className="footer__link-images-resources"
                   src={yelp}
                   alt="Yelp"></img>
               </a>
@@ -95,17 +97,24 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__copyright-container">
-        <p className="footer__copyright-message">
-          Please do not sell or share my personal information without
-          permission.
-        </p>
-        <p className="footer__copyright-message">
-          <img
-            className="footer__copyright-image"
-            src={copyRight}
-            alt="CC"></img>
-          2023 Critic Consolidator Group. All right reserved.
-        </p>
+        <div>
+          <p className="footer__copyright-message">
+            Please do not sell or share my personal information without
+            permission.
+          </p>
+          <p className="footer__copyright-message">
+            <img
+              className="footer__copyright-image"
+              src={copyRight}
+              alt="CC"></img>
+            2023 Critic Consolidator Group. All right reserved.
+          </p>
+        </div>
+        <div className="footer__logo-container">
+          <Link to="/">
+            <img className="footer__logo" src={logo} alt="Logo"></img>
+          </Link>
+        </div>
       </div>
     </footer>
   );
