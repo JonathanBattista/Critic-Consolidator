@@ -9,11 +9,14 @@
   align-items: flex-end;
   gap: 1rem;
   justify-content: space-between;
+  @include tablet {
+  }
   &__logo {
     display: flex;
     padding-bottom: 0.5rem;
     align-items: flex-end;
     gap: 1rem;
+    border-bottom: 1px solid $primarycolor4;
     &:hover {
       border-bottom: 1px solid $secondarycolor1;
     }
@@ -24,23 +27,43 @@
   &__logo-image {
     height: 2rem;
     width: 2rem;
+    @include tablet {
+      height: 3rem;
+      width: 3rem;
+    }
   }
   &__title {
     font-size: 1rem;
     color: $primarycolor1;
+    @include tablet {
+      font-size: 2rem;
+    }
   }
   &__nav {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+    justify-content: flex-end;
   }
   &__nav-link {
     display: none;
     @include tablet {
+      color: $primarycolor1;
+      text-decoration: none;
       display: flex;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $primarycolor4;
+      font-weight: 700;
+    }
+    &:hover {
+      border-bottom: 1px solid $secondarycolor1;
     }
   }
   &__nav-dropdown {
     color: $primarycolor1;
     text-decoration: none;
     padding: 0.5rem 0rem 0rem 0rem;
+    border-bottom: 1px solid $primarycolor4;
     &:hover {
       border-bottom: 1px solid $secondarycolor1;
     }
@@ -54,6 +77,7 @@
     padding-bottom: 0.5rem;
     align-items: center;
     gap: 0.2rem;
+    border-bottom: 1px solid $primarycolor4;
     &:not(.active) {
       &:hover {
         border-bottom: 1px solid $secondarycolor1;
