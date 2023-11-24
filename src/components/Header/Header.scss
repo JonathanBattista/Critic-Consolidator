@@ -109,7 +109,7 @@
     }
     &.active {
       &:hover {
-        border-bottom: none;
+        border-bottom: 1px solid $primarycolor4;
       }
     }
     @include tablet {
