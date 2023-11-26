@@ -29,7 +29,7 @@ const Moviesearch = () => {
         <h2>Trending this week</h2>
         {movies.map((movie) => (
           <div key={movie.id}>
-            <Link to={`/movie/${movie.id}`}>
+            <Link to={`/movies/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}

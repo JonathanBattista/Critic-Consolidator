@@ -13,6 +13,7 @@ const Movieresult = () => {
         );
         const data = await response.json();
         setMovieresult(data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching movie result:", error);
       }
