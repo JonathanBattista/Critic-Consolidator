@@ -1,13 +1,11 @@
 import "./Footer.scss";
-import { Link } from "react-router-dom";
 import myPicture from "../../assets/images/self-picture.jpg";
 import linkedIn from "../../assets/Logo/LI-Logo.png";
 import gitHub from "../../assets/Logo/github-mark-white.svg";
 import google from "../../assets/Logo/google-logo.png";
 import facebook from "../../assets/Logo/facebook.png";
 import yelp from "../../assets/Logo/yelp_logo_dark_bg.png";
-import copyRight from "../../assets/Icons/copyright.png";
-import logo from "../../assets/Logo/logo-black.png";
+import { Footercopyright } from "./Footercopyright";
 
 const Footer = () => {
   return (
@@ -96,26 +94,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="footer__copyright-container">
-        <div>
-          <p className="footer__copyright-message">
-            Please do not sell or share my personal information without
-            permission.
-          </p>
-          <p className="footer__copyright-message">
-            <img
-              className="footer__copyright-image"
-              src={copyRight}
-              alt="CC"></img>
-            2023 Critic Consolidator Group. All right reserved.
-          </p>
-        </div>
-        <div className="footer__logo-container">
-          <Link to="/">
-            <img className="footer__logo" src={logo} alt="Logo"></img>
-          </Link>
-        </div>
-      </div>
+      <Footercopyright />
     </footer>
   );
 };
