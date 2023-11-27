@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./Movieresult.scss";
+import { Reviewdata } from "../Data/Reviewdata";
 
 const Movieresult = () => {
   const { id } = useParams();
@@ -27,13 +29,19 @@ const Movieresult = () => {
   }
 
   return (
-    <div>
-      <h2>{movieresult.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${movieresult.poster_path}`}
-        alt={movieresult.title}
-      />
-      <p>{movieresult.overview}</p>
+    <div className="movieresult">
+      <div className="movieresult__movie">
+        <h2 className="movieresult__header">{movieresult.title}</h2>
+        <img
+          className="movieresult__image"
+          src={`https://image.tmdb.org/t/p/w500${movieresult.poster_path}`}
+          alt={movieresult.title}
+        />
+        <p className="movieresult__text">{movieresult.overview}</p>
+      </div>
+      <div>
+        <Reviewdata />
+      </div>
     </div>
   );
 };

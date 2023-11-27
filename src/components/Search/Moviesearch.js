@@ -22,22 +22,30 @@ const Moviesearch = () => {
   }, []);
 
   return (
-    <div>
-      <input type="text" placeholder="Search" />
-
-      <div>
-        <h2>Trending this week</h2>
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <p>{movie.title}</p>
-            </Link>
-          </div>
-        ))}
+    <div className="moviesearch">
+      <div className="moviesearch__input-container">
+        <h2 className="moviesearch__input-header">Search Movie Library</h2>
+        <input
+          className="moviesearch__input"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+      <div className="moviesearch__trending">
+        <h2 className="moviesearch__header">Trending this week</h2>
+        <div className="moviesearch__trending-map">
+          {movies.map((movie) => (
+            <div className="moviesearch__movie" key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <h3 className="moviesearch__movie-title">{movie.title}</h3>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
