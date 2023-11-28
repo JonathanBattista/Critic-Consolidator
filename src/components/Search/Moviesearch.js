@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Moviesearch.scss";
-import { Link } from "react-router-dom";
 
 const Moviesearch = () => {
   const [movies, setMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.themoviedb.org/3/trending/movie/week?api_key=ae11f413d64f75494a49b4bb48a150a6"
+          `https://api.themoviedb.org/3/trending/movie/week?api_key=ae11f413d64f75494a49b4bb48a150a6`
         );
         const data = await response.json();
         setMovies(data.results);
@@ -21,15 +23,42 @@ const Moviesearch = () => {
     fetchData();
   }, []);
 
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&api_key=ae11f413d64f75494a49b4bb48a150a6`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+      navigate("/movies/search", { state: { searchResults: data.results } });
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    handleSearch();
+  };
+
   return (
     <div className="moviesearch">
       <div className="moviesearch__input-container">
         <h2 className="moviesearch__input-header">Search Movie Library</h2>
-        <input
-          className="moviesearch__input"
-          type="text"
-          placeholder="Search"
-        />
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            className="moviesearch__input"
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={handleInputChange}
+          />
+          <button type="submit">Search</button>
+        </form>
       </div>
       <div className="moviesearch__trending">
         <h2 className="moviesearch__header">Trending this week</h2>
