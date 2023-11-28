@@ -49,7 +49,7 @@ const Moviesearch = () => {
     <div className="moviesearch">
       <div className="moviesearch__input-container">
         <h2 className="moviesearch__input-header">Search Movie Library</h2>
-        <form onSubmit={handleSearchSubmit}>
+        <form className="moviesearch__form" onSubmit={handleSearchSubmit}>
           <input
             className="moviesearch__input"
             type="text"
@@ -57,7 +57,9 @@ const Moviesearch = () => {
             value={searchQuery}
             onChange={handleInputChange}
           />
-          <button type="submit">Search</button>
+          <button className="moviesearch__button" type="submit">
+            Search
+          </button>
         </form>
       </div>
       <div className="moviesearch__trending">
