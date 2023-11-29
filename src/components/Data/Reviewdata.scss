@@ -1,0 +1,150 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/_variables.scss" as *;
+@use "../../styles/_mixins.scss" as *;
+
+.review {
+  &__stars {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-top: 1px solid $secondarycolor1;
+
+    label {
+      position: relative;
+      cursor: pointer;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  &__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid $secondarycolor1;
+    padding: 0rem 1rem;
+    background-color: $secondarycolor3;
+    @include tablet {
+      padding: 0rem 2rem;
+    }
+    &-header {
+      padding: 1rem 0rem;
+      color: $primarycolor1;
+      @include tablet {
+        font-size: 3rem;
+        padding: 3rem 0rem;
+      }
+    }
+    &-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0rem;
+      @include tablet {
+        padding: 3rem 0rem;
+      }
+    }
+    &-logo {
+      width: 14vw;
+    }
+    &-total {
+      color: $primarycolor1;
+      font-size: 4rem;
+      @include tablet {
+        font-size: 8rem;
+      }
+    }
+  }
+}
+
+.filtered-reviews {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0rem;
+    @include tablet {
+      padding-bottom: 0rem;
+    }
+  }
+  &__tablet {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__header {
+    color: $primarycolor1;
+    padding: 1rem 0rem;
+    @include tablet {
+      font-size: 2.5rem;
+    }
+    @include desktop {
+      font-size: 3rem;
+    }
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid $secondarycolor1;
+    gap: 1rem;
+    @include tablet {
+      border: 1px solid $secondarycolor1;
+    }
+    @include desktop {
+      padding: 3rem;
+    }
+  }
+  &__text {
+    color: $primarycolor1;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  &__date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $primarycolor1;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+    @include desktop {
+      font-size: 2rem;
+    }
+  }
+  &__imdb {
+    width: 14vw;
+    @include tablet {
+      width: 11vw;
+    }
+    @include desktop {
+      width: 9vw;
+    }
+  }
+  &__tomato {
+    width: 14vw;
+    @include tablet {
+      width: 7vw;
+    }
+    @include desktop {
+      width: 5vw;
+    }
+  }
+  &__google {
+    width: 14vw;
+    @include tablet {
+      width: 7vw;
+    }
+    @include desktop {
+      width: 5vw;
+    }
+  }
+}

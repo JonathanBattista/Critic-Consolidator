@@ -1,12 +1,37 @@
-import { useState } from "react";
-import star1 from "../../assets/Icons/Star_rating_1_of_5.png";
-import star2 from "../../assets/Icons/Star_rating_2_of_5.png";
-import star3 from "../../assets/Icons/Star_rating_3_of_5.png";
-import star4 from "../../assets/Icons/Star_rating_4_of_5.png";
-import star5 from "../../assets/Icons/Star_rating_5_of_5.png";
+import { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+import google from "../../assets/Logo/google-logo.png";
+import imdb from "../../assets/Logo/imdb-logo.png";
+import rottentomato from "../../assets/Logo/rottentomatoes-logo.png";
+import logo from "../../assets/Logo/white-logo-right.png";
+import "./Reviewdata.scss";
 
 const Reviewdata = () => {
-  const [selectedStars, setSelectedStars] = useState(5);
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
+  const [imdbAverage, setImdbAverage] = useState(null);
+  const [rottenTomatoesAverage, setRottenTomatoesAverage] = useState(null);
+  const [googleAverage, setGoogleAverage] = useState(null);
+  const [overallAverage, setOverallAverage] = useState(null);
+
+  const reviewGrade = [
+    {
+      site: "IMDb",
+      grade: 6.9,
+      scale: 10,
+    },
+    {
+      site: "Rotten Tomatoes",
+      grade: 76,
+      scale: 100,
+    },
+    {
+      site: "Google",
+      grade: 4.3,
+      scale: 5,
+    },
+  ];
+
   const reviewsData = [
     {
       date: "2023-01-01",
@@ -24,7 +49,7 @@ const Reviewdata = () => {
     },
     {
       date: "2023-01-01",
-      site: "Metacritic",
+      site: "Google",
       review:
         "A five-star triumph that sets a new standard for excellence in filmmaking. From the opening scene to the final frame, this movie is a rollercoaster of emotions, expertly crafted with precision and care. A true testament to the power of storytelling in the world of cinema.",
       stars: 5,
@@ -45,7 +70,7 @@ const Reviewdata = () => {
     },
     {
       date: "2023-01-03",
-      site: "Metacritic",
+      site: "Google",
       review:
         "A solid addition to the cinematic landscape, this movie brings together a commendable cast and a thought-provoking plot. While it may have a few minor imperfections, they are easily overlooked in the grand scheme of its overall quality. A strong recommendation for those seeking a well-crafted and engaging film.",
       stars: 4,
@@ -66,7 +91,7 @@ const Reviewdata = () => {
     },
     {
       date: "2023-01-03",
-      site: "Metacritic",
+      site: "Google",
       review:
         "A mixed bag of cinematic elements, this movie has its highs and lows. While it offers some commendable aspects, it also grapples with certain issues that hinder its overall impact. It's a film that might resonate with some viewers, but its flaws prevent it from reaching the heights of a truly memorable experience.",
       stars: 3,
@@ -87,7 +112,7 @@ const Reviewdata = () => {
     },
     {
       date: "2023-01-03",
-      site: "Metacritic",
+      site: "Google",
       review:
         "Two stars for effort, but this film misses the mark. A confusing plotline, coupled with lackluster character development, leaves viewers questioning the overall direction. Despite a few redeeming moments, it struggles to justify its place among more noteworthy cinematic offerings. Approach with caution.",
       stars: 2,
@@ -108,72 +133,128 @@ const Reviewdata = () => {
     },
     {
       date: "2023-01-03",
-      site: "Metacritic",
+      site: "Google",
       review:
         "A film that not only falls flat but also manages to scrape the bottom of the barrel. Incoherent storytelling, wooden acting, and a complete lack of direction make this movie an absolute travesty. Do yourself a favor and choose literally anything else for your movie night.",
       stars: 1,
     },
   ];
 
-  const starImages = {
-    1: star1,
-    2: star2,
-    3: star3,
-    4: star4,
-    5: star5,
-  };
+  useEffect(() => {
+    const imdbTotal = reviewGrade
+      .filter((review) => review.site === "IMDb" && review.grade !== undefined)
+      .reduce((acc, review) => acc + (review.grade / review.scale) * 100, 0);
+    const imdbCount = reviewGrade.filter(
+      (review) => review.site === "IMDb" && review.grade !== undefined
+    ).length;
+    setImdbAverage(imdbTotal / imdbCount);
 
-  const handleStarClick = (stars) => {
-    setSelectedStars(stars);
-  };
-  const handleStarChange = (e) => {
-    setSelectedStars(Number(e.target.value));
-  };
+    const rottenTomatoesTotal = reviewGrade
+      .filter(
+        (review) =>
+          review.site === "Rotten Tomatoes" && review.grade !== undefined
+      )
+      .reduce((acc, review) => acc + (review.grade / review.scale) * 100, 0);
+    const rottenTomatoesCount = reviewGrade.filter(
+      (review) =>
+        review.site === "Rotten Tomatoes" && review.grade !== undefined
+    ).length;
+    setRottenTomatoesAverage(rottenTomatoesTotal / rottenTomatoesCount);
+
+    const googleTotal = reviewGrade
+      .filter(
+        (review) => review.site === "Google" && review.grade !== undefined
+      )
+      .reduce((acc, review) => acc + (review.grade / review.scale) * 100, 0);
+    const googleCount = reviewGrade.filter(
+      (review) => review.site === "Google" && review.grade !== undefined
+    ).length;
+    setGoogleAverage(googleTotal / googleCount);
+
+    const overallTotal = imdbTotal + rottenTomatoesTotal + googleTotal;
+    const overallCount = imdbCount + rottenTomatoesCount + googleCount;
+    setOverallAverage(overallTotal / overallCount);
+  }, [reviewGrade]);
+
+  const filteredReviews = reviewsData.filter(
+    (review) => review.stars === rating
+  );
 
   return (
-    <div>
-      <select
-        value={selectedStars}
-        onChange={handleStarChange}
-        style={{ marginBottom: "10px" }}>
-        {[5, 4, 3, 2, 1].map((stars) => (
-          <option key={stars} value={stars}>
-            {Array.from({ length: stars }, (_, index) => (
-              <img key={index} src={starImages[stars]} alt={`${stars} stars`} />
-            ))}
-          </option>
-        ))}
-      </select>
-
-      <div>
-        {[5, 4, 3, 2, 1].map((stars) => (
-          <img
-            key={stars}
-            src={starImages[stars]}
-            alt={`${stars} stars`}
-            onClick={() => setSelectedStars(stars)}
-            style={{
-              cursor: "pointer",
-              opacity: stars === selectedStars ? 1 : 0.5,
-            }}
-          />
-        ))}
+    <div className="review">
+      <div className="review__score">
+        <h2 className="review__score-header">Consolidated Score</h2>
+        <div className="review__score-bottom">
+          <img className="review__score-logo" src={logo}></img>
+          {overallAverage && (
+            <p className="review__score-total">{Math.round(overallAverage)}%</p>
+          )}
+        </div>
       </div>
-
-      {reviewsData
-        .filter((review) => review.stars === selectedStars)
-        .map((review, index) => (
-          <div key={index}>
-            <div>
-              <div>{review.date}</div>
-              <img
-                src={`../../assets/Logo/${review.site.toLowerCase()}-logo.png`}
-                alt={review.site}
+      <div className="review__stars">
+        {[...Array(5)].map((star, index) => {
+          const currentRating = index + 1;
+          return (
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={currentRating}
+                onClick={() => setRating(currentRating)}
               />
+              <FaStar
+                className="review__star"
+                size={50}
+                color={
+                  currentRating <= (hover || rating) ? "#FFC107" : "#E4E5E9"
+                }
+                onMouseEnter={() => setHover(currentRating)}
+                onMouseLeave={() => setHover(null)}
+              />
+            </label>
+          );
+        })}
+      </div>
+      <div className="filtered-reviews">
+        {rating && (
+          <div className="filtered-reviews__container">
+            <h2 className="filtered-reviews__header">
+              Reviews with {rating} stars:
+            </h2>
+            <div className="filtered-reviews__tablet">
+              {filteredReviews.map((review, index) => (
+                <div className="filtered-reviews__main" key={index}>
+                  <p className="filtered-reviews__text">{review.review}</p>
+                  <p className="filtered-reviews__date">
+                    {review.date}{" "}
+                    {review.site === "IMDb" && (
+                      <img
+                        className="filtered-reviews__imdb"
+                        src={imdb}
+                        alt="IMDb Logo"
+                      />
+                    )}
+                    {review.site === "Rotten Tomatoes" && (
+                      <img
+                        className="filtered-reviews__tomato"
+                        src={rottentomato}
+                        alt="Rotten Tomatoes Logo"
+                      />
+                    )}
+                    {review.site === "Google" && (
+                      <img
+                        className="filtered-reviews__google"
+                        src={google}
+                        alt="Google Logo"
+                      />
+                    )}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div>{review.review}</div>
           </div>
-        ))}
+        )}
+      </div>
     </div>
   );
 };
