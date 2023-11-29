@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { SearchBar } from "../Searchbar/Moviesearchbar";
 import "./Moviesearch.scss";
 
 const Moviesearch = () => {
